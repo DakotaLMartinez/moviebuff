@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_232518) do
+ActiveRecord::Schema.define(version: 2019_12_10_234807) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 2019_12_10_232518) do
     t.float "vote_average"
     t.string "poster_path"
     t.string "backdrop_path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
