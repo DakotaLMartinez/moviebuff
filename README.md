@@ -1,24 +1,17 @@
-# README
+# Rails Forms and Associations
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For our domain model we'll be using a movie review app.
 
-Things you may want to cover:
+User 
+Movie 
+Tag
+Review
 
-* Ruby version
+Features:
+- Users can create reviews and select the movie, and tags associated with the review
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To support this feature we need the following things built out:
+- Review resource
+- User Model, Users table, (empty controller) we'll create a user through db/seeds.rb (no authentication, we'll have a current_user method in our application_controller that will return the user we created in seeds)
+- Movie scaffold and seed in some data from TMDB.org (scaffold will create full CRUD for movies, but we won't really need it here)
+- Tag scaffold so we can create some tags that we can then add to our reviews when we create them.
