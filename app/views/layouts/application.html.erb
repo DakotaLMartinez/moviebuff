@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to 'Movies', movies_path %>
+      <%= link_to 'Tags', tags_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>
