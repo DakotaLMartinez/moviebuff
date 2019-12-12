@@ -37,3 +37,36 @@ Controllers
   - index, new & create (edit & update)
 Routes
   - resources for reviews (which gives us the RESTful routes we need)
+
+  To make a review we need this info:
+  title: text
+  content: text_area
+  movie_id: select_tag
+  tag_ids: collection of check boxes
+
+Long way for select with options:
+```
+<select name="movie_id">
+  <% Movie.all.each do |movie| %>
+    <option value="<%= movie.id %>"><%= movie.title %></option>
+  <% end %>
+</select>
+```
+Short way:
+```
+<%= f.collection_select :movie_id, Movie.all, :id, :title %>
+```
+Long way for check boxes tags:
+
+<% Tag.all.each do |tag| %>
+  <label><input type="checkbox" name="review[tag_ids][]" value="<%= tag.id %>" /><%= tag.name %></label>
+<% end %>
+
+Short way for check boxes:
+
+```
+<%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b|
+    b.label { b.check_box + b.text } 
+end %>
+
+```
