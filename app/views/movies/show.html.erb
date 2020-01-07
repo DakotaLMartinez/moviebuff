@@ -35,5 +35,10 @@
   <%= @movie.backdrop_path %>
 </p>
 
+<h2>Reviews</h2>
+<% @movie.reviews.each do |review| %>
+  <%= list_view_for_review(review) %>
+<% end %>
+
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

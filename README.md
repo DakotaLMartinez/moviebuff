@@ -70,3 +70,39 @@ Short way for check boxes:
 end %>
 
 ```
+
+When we have a colleciton of check boxes for inputs we need to specify that in our strong parameters.
+
+tag_ids: []
+
+12/12/19:
+
+Adding Helpers & Partials to our application to encapsulate shared view logic
+
+Example Usage:
+`login_links` helper which renders one partial or another depending on whether a user is logged in. 
+  - Logged in user sees a link to their profile
+  - non-logged in user sees links to sign up/log in
+
+In our layout.html.erb file, we could invoke our `login_links` helper and then that markup would be added at that point.
+
+We could also build a list view version of a resource that we use within index.html.erb
+
+we can use just a partial or a combination of helper & partial:
+
+just the partial:
+```
+<%= render partial: "review", locals: { review: @review } %>
+```
+
+combination:
+```
+# helper
+def render_review_list_view(review)
+  render partial: "reviews/review", locals: { review: review }
+end
+
+# view code
+<%= render_review_list_view(review) %>
+```
+
