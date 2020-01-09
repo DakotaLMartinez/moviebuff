@@ -1,8 +1,13 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_movie
   
   def index 
-    @reviews = Review.all
+    if @movie
+      @reviews = @movie.reviews
+    else
+      @reviews = Review.all
+    end
   end
 
   def show 
@@ -38,6 +43,10 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find_by_id(params[:id])
+  end
+
+  def set_movie
+    @movie = Movie.find_by_id(params[:movie_id])
   end
 
   def review_params

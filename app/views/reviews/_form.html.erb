@@ -7,10 +7,14 @@
   <%= f.label :content %>
   <%= f.text_area :content %>
 </p>
+<% if @movie %>
+  <%= f.hidden_field :movie_id, @movie.id %>
+<% else %>
 <p>
   <%= f.label :movie_id %>
   <%= f.collection_select :movie_id, Movie.all, :id, :title %>
 </p>
+<% end %>
 <p>
   <%= f.label :tags %>
   <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b|

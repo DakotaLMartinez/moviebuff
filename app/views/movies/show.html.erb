@@ -36,6 +36,10 @@
 </p>
 
 <h2>Reviews</h2>
+<%= form_for([@movie, @review]) do |f| %>
+  <%= render partial: 'reviews/form', locals: {f: f} %>
+  <%= f.submit %>
+<% end %>
 <% @movie.reviews.each do |review| %>
   <%= list_view_for_review(review) %>
 <% end %>

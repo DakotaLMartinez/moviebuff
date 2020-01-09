@@ -1,1 +1,1 @@
-<h3><%= link_to("#{review.title}#{options[:show_movie_title] ? ' (' + review.movie.title + ')' : ''}", review_path(review)) %></h3>
+<h3><%= link_to("#{review.title}#{options[:show_movie_title] ? ' (' + review.movie.title + ')' : ''}", review_path(review)) if review.persisted? %></h3>
